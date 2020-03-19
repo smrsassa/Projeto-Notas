@@ -1,27 +1,20 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
   <title>Notas | Login</title>
-  <!-- Tell the browser to be responsive to screen width -->
-  <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <?php
   include 'include/head_link.php';
   ?>
 
   <style>
-
     #img {
-
       background-image: url('dist/img/back.jpg');
       background-repeat: no-repeat;
       background-attachment: fixed;
       background-size: cover;
-
     }
-
   </style>
 
 </head>
@@ -60,15 +53,12 @@
             <button type="submit" class="btn btn-primary btn-block" id="signIn">
               Sign In
             </button>
-          </div>
-          <!-- /.col -->
+          </div><!-- /.col -->
         </div>
       </form>
-    </div>
-    <!-- /.login-card-body -->
+    </div><!-- /.login-card-body -->
   </div>
-</div>
-<!-- /.login-box -->
+</div><!-- /.login-box -->
 
 <?php
 include 'include/body_script.php';
@@ -84,21 +74,21 @@ $().ready(function () {
   $.validator.setDefaults({
     submitHandler: function () {
 
-		  var email=$('#email').val();	//Pega valor do campo email
-		  var senha=$('#senha').val();	//Pega valor do campo senha
-		  $.ajax({			//Função AJAX
-		  	url:"ajax/login.php",			//Arquivo php
-		  	type:"post",				//Método de envio
-		  	data: "email="+email+"&senha="+senha,	//Dados
-   	  	success: function (result){			//Sucesso no AJAX
+      var email=$('#email').val();
+      var senha=$('#senha').val();
+      $.ajax({
+        url:"ajax/login.php",
+        type:"post",
+        data: "email="+email+"&senha="+senha,
+        success: function (result){
           if(result==1){
-            location.href='index.php'	//Redireciona
+            location.href='index.php'
           }else{
-            $('#errolog').show();		//Informa o erro
+            $('#errolog').show();
           }
         }
       })
-		  return false;	//Evita que a página seja atualizada
+      return false;
 
     }
   });
