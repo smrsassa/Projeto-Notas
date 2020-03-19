@@ -1,24 +1,26 @@
+<?php
+include 'ajax/login.php';
+?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
 
   <title>AdminLTE 3 | Top Navigation</title>
+
   <style>
-
     #img {
-
       background-image: url('dist/img/back.jpg');
       background-repeat: no-repeat;
       background-attachment: fixed;
       background-size: cover;
-
     }
-
   </style>
+
   <?php include 'include/head_link.php'; ?>
+
 </head>
 <body class="hold-transition layout-top-nav" >
 <div class="wrapper" >
@@ -30,12 +32,55 @@
       <div class="container">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0 text-light"> Hub</h1>
+
+          <!-- Navegação pelo nome da pagina -->
+          <nav class="navbar navbar-expand-md">
+            <div class="collapse navbar-collapse order-3" id="navbarCollapse">
+              <ul class="navbar-nav">
+                <li class="nav-item dropdown">
+                  <h1 id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle" style="color: #17a2b8"><a><strong>hub</strong></a></h1>
+                  <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow">
+                    <li><a href="#" class="dropdown-item">Some action </a></li>
+                    <li><a href="#" class="dropdown-item">Some other action</a></li>
+
+                    <li class="dropdown-divider"></li>
+
+                    <!-- Level two dropdown-->
+                    <li class="dropdown-submenu dropdown-hover">
+                      <a id="dropdownSubMenu2" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-item dropdown-toggle">Hover for action</a>
+                      <ul aria-labelledby="dropdownSubMenu2" class="dropdown-menu border-0 shadow">
+                        <li>
+                          <a tabindex="-1" href="#" class="dropdown-item">level 2</a>
+                        </li>
+
+                        <!-- Level three dropdown-->
+                        <li class="dropdown-submenu">
+                          <a id="dropdownSubMenu3" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-item dropdown-toggle">level 2</a>
+                          <ul aria-labelledby="dropdownSubMenu3" class="dropdown-menu border-0 shadow">
+                            <li><a href="#" class="dropdown-item">3rd level</a></li>
+                            <li><a href="#" class="dropdown-item">3rd level</a></li>
+                          </ul>
+                        </li>
+                        <!-- End Level three -->
+
+                        <li><a href="#" class="dropdown-item">level 2</a></li>
+                        <li><a href="#" class="dropdown-item">level 2</a></li>
+                      </ul>
+                    </li>
+                    <!-- End Level two -->
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </nav><!--/ Navegação pelo nome da pagina -->
+
           </div><!-- /.col -->
           <div class="col-sm-6">
-            <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
-            </ol>
+              <ol class="breadcrumb float-sm-right">
+                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                <li class="breadcrumb-item"><a href="#">Home</a></li>
+              </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->
@@ -54,7 +99,7 @@
               </div>
               <div class="card-body">
                 <p>
-                  assssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+                  assssssssssssssssssssssss <a href="notas.php"> sssssssssssssss</a>sssssssssssssssssssssssssssss
                   assssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
                   assssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
                   assssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss

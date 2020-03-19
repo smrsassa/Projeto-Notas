@@ -1,22 +1,5 @@
-<?php
-require_once("class/db.class.php");
-require_once("class/login.class.php");
-
-if (($_SERVER['REQUEST_METHOD'] == 'POST')) {
-  $email = $_POST['email'];
-  $senha = $_POST['password'];
-  $login = new login();
-  $login->Login($email, $senha);
-  if( @$_SESSION['logado'] ) {
-    header('Location: ');
-  } else {
-    $email = "s";
-  }
-}
-
-?>
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -63,7 +46,7 @@ if (($_SERVER['REQUEST_METHOD'] == 'POST')) {
           </div>
         </div>
         <div class="input-group mb-3" id="campos">
-          <input type="password" name="password" id="password" class="form-control" placeholder="Password">
+          <input type="password" name="senha" id="senha" class="form-control" placeholder="Password">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-lock"></span>
@@ -97,27 +80,26 @@ include 'include/body_script.php';
 
 <script type="text/javascript">
 
-$(document).ready(function () {
+$().ready(function () {
   $.validator.setDefaults({
     submitHandler: function () {
-      $("#signIn").click(function(){
 
-        var formData = new FormData();
+		  var email=$('#email').val();	//Pega valor do campo email
+		  var senha=$('#senha').val();	//Pega valor do campo senha
+		  $.ajax({			//Função AJAX
+		  	url:"ajax/login.php",			//Arquivo php
+		  	type:"post",				//Método de envio
+		  	data: "email="+email+"&senha="+senha,	//Dados
+   	  	success: function (result){			//Sucesso no AJAX
+          if(result==1){
+            location.href='index.php'	//Redireciona
+          }else{
+            $('#errolog').show();		//Informa o erro
+          }
+        }
+      })
+		  return false;	//Evita que a página seja atualizada
 
-        var email = document.getElementById("email");
-        var password = document.getElementById("password");
-
-        formData.set("email", email.value)
-        formData.set("password", password.value)
-
-        $.ajax({
-          url: 'login.php',
-          type: 'post',
-          data: formData,
-          contentType: false,
-          processData: false,
-        });
-      });
     }
   });
   $('#login').validate({
