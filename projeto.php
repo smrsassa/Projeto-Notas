@@ -1,11 +1,8 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-  <title>AdminLTE 3 | Top Navigation</title>
+  <title>Notas | Hub</title>
 
   <style>
     #img {
@@ -15,6 +12,7 @@
       background-size: cover;
     }
   </style>
+
   <?php include 'include/head_link.php'; ?>
 
 </head>
@@ -28,13 +26,12 @@
       <div class="container">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0 text-light"> Hub</h1>
+            <h1 style="color: white"><strong>Hub</strong></h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
-            <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="index.php">Home</a></li>
-              <li class="breadcrumb-item"><a href="#">Notas</a></li>
-            </ol>
+              <ol class="breadcrumb float-sm-right">
+                <li class="breadcrumb-item"><a href="#">Home</a></li>
+              </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->
@@ -44,18 +41,9 @@
     <!-- Main content -->
     <div class="content">
       <div class="container">
-        <div class="row">
-          <!-- Left col -->
-          <section class="col-lg-6 connectedSortable">
-
-          </section>
-          <section class="col-lg-6 connectedSortable">
-
-          </section>
-      </div><!-- /.container-fluid -->
+      </div>
+      <!-- /.content -->
     </div>
-    <!-- /.content -->
-  </div>
   <!-- /.content-wrapper -->
 
   <!-- Control Sidebar -->
@@ -67,15 +55,13 @@
     </div>
   </aside>
   <!-- /.control-sidebar -->
-
-  <!-- Main Footer -->
+</div>
+<!-- ./wrapper -->
   <footer class="main-footer" id="footer">
     <?php include 'include/footer.php'; ?>
   </footer>
-</div>
-<!-- ./wrapper -->
 
-<!-- REQUIRED SCRIPTS -->
+  <!-- REQUIRED SCRIPTS -->
   <?php include 'include/body_script.php'; ?>
 </body>
 </html>
