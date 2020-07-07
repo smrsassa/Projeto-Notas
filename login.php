@@ -1,3 +1,18 @@
+<?php
+require_once('class/db.class.php');
+require_once('class/usuario.class.php');
+
+if (($_SERVER['REQUEST_METHOD'] == 'POST')) {
+  $usuario = new usuario();
+  $email = $_POST['email'];
+  if($usuario->validaLogin($_POST)){
+    header ('Location: index.php');
+  }
+  else {
+    $erro = 1;
+  }
+}
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -22,16 +37,20 @@
 
 <div class="login-box">
   <div class="login-logo">
-    <a href="" style="color: white"><b>Notas |</b> SMR</a>
+    <a href="" style="color: white"><b>SMR |</b> Notas</a>
   </div>
   <!-- /.login-logo -->
   <div class="card">
     <div class="card-body login-card-body">
-      <p class="login-box-msg">Sign in to start your session</p>
+      <p class="login-box-msg">Faça o login para iniciar sua sessão</p>
 
-      <form action="" method="post" id="login">
+      <?php if ( @$erro == 1 ) {?>
+        <p class="login-box-msg" id="erroMsg" style="color: red">Email ou senha incorretos</p>
+      <?php } ?>
+
+      <form method="post" id="formLogin">
         <div class="input-group mb-3" id="campos">
-          <input type="email" name="email" id="email" class="form-control" placeholder="Email">
+          <input type="email" name="email" id="email" class="form-control" value="<?= @$email ?>" placeholder="Email">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-envelope"></span>
@@ -64,54 +83,32 @@
 include 'include/body_script.php';
 ?>
 
-<!-- jquery-validation -->
 <script src="plugins/jquery-validation/jquery.validate.min.js"></script>
 <script src="plugins/jquery-validation/additional-methods.min.js"></script>
 
-<script type="text/javascript">
+<script>
 
-$().ready(function () {
-  $.validator.setDefaults({
-    submitHandler: function () {
-
-      var email=$('#email').val();
-      var senha=$('#senha').val();
-      $.ajax({
-        url:"ajax/login.php",
-        type:"post",
-        data: "email="+email+"&senha="+senha,
-        success: function (result){
-          if(result==1){
-            location.href='index.php'
-          }else{
-            $('#errolog').show();
-          }
-        }
-      })
-      return false;
-
-    }
-  });
-  $('#login').validate({
+$(document).ready(function () {
+  $('#formLogin').validate({
     rules: {
       email: {
         required: true,
         email: true,
       },
-      password: {
+      senha: {
         required: true,
-        minlength: 5,
+        minlength: 5
       },
     },
     messages: {
       email: {
-        required: "Please enter a email address",
-        email: "Please enter a vaild email address"
+        required: "Por favor insira o seu E-mail",
+        email: "Por favor insira um E-mail valido"
       },
-      password: {
-        required: "Please provide a password",
-        minlength: "Your password must be at least 5 characters long"
-      }
+      senha: {
+        required: "Por favor insira sua senha",
+        minlength: "Sua senha tem que ter ao menos 5 caracteres"
+      },
     },
     errorElement: 'span',
     errorPlacement: function (error, element) {
