@@ -50,9 +50,6 @@
               </div>
               <div class="card-body">
                 <p>
-                  assssssssssssssssssssssss <a href="notas.php"> sssssssssssssss</a>sssssssssssssssssssssssssssss
-                  assssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
-                  assssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
                   assssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
                 </p>
               </div>
